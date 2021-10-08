@@ -2,12 +2,12 @@ class Parent {
     function addressOne (city) {
         const add = {
             city : city,
-            street : '13th Main'
+        
         }
         
         return add
     }
-    
+}
     console.log(addressOne('Trichy'));
     
     // ARROW FUNCTIONS
@@ -34,13 +34,15 @@ class Parent {
     console.log(addressOne('Trichy'));
     
     // ARROW FUNCTIONS
-    const add1 = {
+   const add1 = {
         city : 'city',
         street : '13th Main'
     }
     const addressTwo = () => add1
     
     console.log(addressTwo('Madurai'));
+    
+
     const objOne = {
         name : 'Krishna',
         address : function() {
@@ -57,4 +59,6 @@ class Parent {
     
     console.log(objOne.address());
     console.log(objTwo.address());
-    
+     
+
+//
