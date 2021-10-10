@@ -1,3 +1,5 @@
+//class using rest
+
 class Color{
     constructor(...arr){
         this.arr=arr
@@ -21,15 +23,15 @@ console.log(Number(e));
 
 //arrow fun
 
-hello = function() {
+const hello1 = function() {
    return "hello welcome to node js";             //normal 
   }
-  console.log(hello)
+  console.log(hello1())
 
-  hello = () => {
+  const hello = () => {
     return "hello welcome to node js";
   }                                                //arrow
-  console.log(hello)
+  console.log(hello())
 
 
 
