@@ -87,3 +87,4 @@ const Place = {
 const X44 = () => Place
 
 console.log(X44());
+

@@ -1,3 +1,4 @@
+
 const xyz = parseInt(9.1236);
 //console.log(xyz);
 
@@ -38,4 +39,5 @@ console.log(i)
 
 var k = parseInt("0x10")
 console.log(k)               //16
+
 
