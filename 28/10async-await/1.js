@@ -13,7 +13,7 @@ const mainTo = async() => {
 
 }
 
-mainTo();
+mainTo();            //15
 
 
 //<<<<<<<<<----------->>>>>>>>>
@@ -28,4 +28,4 @@ const colorTwo = async() => {
     console.log(chalk.red.bold(await outputChange()));
 }
  
-colorTwo();
+colorTwo();                      //error in red color

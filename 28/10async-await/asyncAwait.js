@@ -14,7 +14,7 @@ const funcone = async () => {
     console.log(output)
 }
 
-funcone();
+funcone();    //hello im done 
 
 //<<<<<<<<<<<<________________>>>>>>>>>>>>
 
@@ -32,7 +32,7 @@ const funcThree = async () => {
     const output = await mainFunc()
     console.log(output)
 }
-funcThree();
+funcThree();             //im done after 3 secs
 
 //<<<<<<<<<<--------------->>>>>>>>>>>
 const doDisplay = () => {
@@ -47,7 +47,7 @@ const doDisplay = () => {
   
   console.log('GANGHU VENKATA')
   doDisplayNew()
-  console.log('KRISHNA')
+  console.log('KRISHNA')            //gangu venkata krishna              teja
 
 
 
@@ -69,4 +69,4 @@ const funcone11 = async () => {
 }
 
 
-funcone11();
+funcone11();             //error hand

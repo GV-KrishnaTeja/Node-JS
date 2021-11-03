@@ -3,14 +3,13 @@
 const mePromise = new Promise((resolve,reject) => {
     const a = 1+1
     if (a==2){
-       return resolve('CORRECT')
+        resolve('CORRECT')
     }else{
-      return  reject('FAIL')
+        reject('FAIL')
     }
     
-
 })
-mePromise.then((message => {
+mePromise().then((message => {
     console.log(message)
 })).catch((message => {
     console.log('failed to excute ')
