@@ -1,0 +1,39 @@
+Welcome to <%= title %>
+
+<br>
+<h3> Mongodb Data</h3>
+<br>
+<style>
+    table,
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+
+<div class="container bg-light text-dark">
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <th>Digit</th>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%findResult.forEach(function(element) {%>
+            <tr>
+                <td><%=element.a%></td>
+                <td><%=element.name%></td>
+                <td><%=element.city%></td>
+            </tr>
+            <%});%>
+        </tbody>
+    </table>
+</div>
+
+
+
+
