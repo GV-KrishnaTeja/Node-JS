@@ -1,22 +1,48 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var router = express.Router();
+const jwt = require('jsonwebtoken');
 
 /* GET users listing. */
 router.get('/login', function(req, res, next) {
-  let auth={
-      code:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSW9uZVRlY2giLCJpYXQiOjE2MzY4ODE5NTYsImV4cCI6MTYzNjg4MjAxNn0.vfIqZwEYFBqO4Zenk4_FNTgAEEnrOlGOHgqoVw1_Wzc"
-  }
- // console.log(`cookies are : , ${req.cookie}`)
-  res.cookie('userdata',auth,{secure:true});
+   let obj ={
+
+       auth:true
+
+   }
+
+  
+  console.log(`cookies are : , ${req.cookies}`)
+  res.cookie('userdata',obj,{secure:true});
   res.send('cookie created');
 });
+//get token  from cookie n verify that token
 
- router.get('/testRoute',function(req,res,next){
-    console.log(`cookies are : , ${req.cookie}`)
-    if(req.cookies.userdata.auth === true){
-      res.render('create')
+router.get('/testRoute',function(req,res,next){
+  console.log(`cookies are :,${JSON.stringify(req.cookies)}`)
+  //console.log('kkakakakkakakakakakakak')
+  const tokenfromCookie = req.cookies.jwtToken.code;
+  console.log(tokenfromCookie)
+  const secret = 'QWER@#$^'
+
+  jwt.verify(tokenfromCookie,secret,function (err,decoded) {
+    if(err){
+      res.status(401).send('incorrect token');
     }
-    res.send('no acess')
+    else{
+
+      console.log(decoded.user)
+
+      if (decoded.user ==="IoneTech"){ 
+        console.log("token verified from loginpage")
+        res.send("token verified from loginpage")
+
+        }
+ 
+        
+   
+      }
+    })
+ 
  })
  module.exports = router;
