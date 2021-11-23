@@ -1,0 +1,54 @@
+<h1 style="color: black;"> STUDENT DATA</h3>
+  <br>
+  <style>
+      table,
+      th,
+      td {
+          background-color: cornsilk;
+          padding: 20px;
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+  </style>
+<form action="/authorize" method="post">
+  <div class="container bg-light text-dark">
+      <table class="table table-striped">
+
+          <thead>
+              <tr>
+                  <th>studentId</th>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Department</th>
+              </tr>
+          </thead>
+          <tbody>
+              <%result .forEach(element=> { %>
+                  <tr>
+                      <td>
+                          <%=element.studentId%>
+                      </td>
+                      <td>
+                          <%=element.Firstname%>
+                      </td>
+                      <td>
+                          <%=element.Lastname%>
+                      </td>
+                      <td>
+                          <%=element.Department%>
+                      </td>
+              
+                      <%});%>
+                    
+
+          </tbody>
+
+      </table>
+      <br>
+
+
+
+  
+
+  </div>
+</form>
