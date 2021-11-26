@@ -10,8 +10,9 @@ const dbpath =require('./routes/dbOne');
 const loginPath = require('./routes/login');
 const logoutPath = require('./routes/logout');
 const authPath =require('./routes/authorize');
-const anuPath = require('./routes/anu');
-
+const anuPath = require('./routes/main');
+const updatePath=require('./routes/update');
+const deletePath=require('./routes/delete');
 var app = express();
 
 // view engine setup
@@ -31,7 +32,11 @@ app.get('/jjss',dbpath);
 app.get('/login',loginPath);
 app.get('/logout',logoutPath)
 app.post('/authorize',authPath);
-app.get('/anu',anuPath)
+app.get('/main',anuPath)
+app.post('/update_auth',updatePath)
+app.get('/delete',deletePath);
+app.get('/updateRecord',dbpath)
+app.get('/deleteRecord',dbpath)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
