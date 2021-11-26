@@ -1,19 +1,22 @@
 const express = require('express');
 const path = require('path');
 const jwt = require('jsonwebtoken');
-var router = express.Router();
-const mysql      = require('mysql');
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'Password@123',
-  database : 'student_table'
-});
+const connection =require('../utils/connection')
 
-connection.connect(function(error){
-    if(error) throw error
-    else console.log("connected!!!!")
-})
+//const verifyjwt = require('../utils/verifyJwtToken');
+var router = express.Router();
+// const mysql      = require('mysql');
+// const connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : 'Password@123',
+//   database : 'student_table'
+// });
+
+// connection.connect(function(error){
+//     if(error) throw error
+//     else console.log("connected!!!!")
+// })
 
 
 
@@ -38,7 +41,7 @@ router.post('/authorize', function (req, res, next) {
                             code : token
                         }
                         res.cookie('jwtToken',tokenObj,{maxAge : 300000}); // step -2 & 3 , creating a cookie an dloading token in cookie
-                        res.render('anu',{ title: 'HOMEPAGE' ,result})
+                        res.render('main',{ title: 'HOMEPAGE' ,result})
     
                     }
                 })   
