@@ -1,4 +1,5 @@
 <h1 style="color: black;"> STUDENT DATA</h3>
+ 
   <br>
   <style>
       table,
@@ -37,6 +38,9 @@
                       <td>
                           <%=element.Department%>
                       </td>
+                      <td><a href="/deleteRecord?studentId=<%=element.studentId%>">DELETE</a></td>
+                      <td><a href="/updateRecord?Firstname=<%=element.Firstname%>&studentId=<%=element.studentId%>">UPDATE</a></td>
+
               
                       <%});%>
                     
@@ -44,9 +48,17 @@
           </tbody>
 
       </table>
-      <br>
+      <% if(pageNo < 4) {%>
+        <a style="margin-left: 50px;"
+            href="http://localhost:3000/jjss?page=<%=parseInt(pageNo)+1%>&limit=<%=limitvalue%>">NEXT</a>
+            <% } %>
+          
+            <% if(pageNo> 1) {%>
+                <a style="margin-left: 100px;"
+                    href="http://localhost:3000/jjss?page=<%=parseInt(pageNo)-1%>&limit=<%=limitvalue%>">PREVIOUS</a>
+                    <% } %>
 
-
+      
 
   
 
