@@ -1,0 +1,66 @@
+<h1 style="color: black;"> STUDENT DATA</h3>
+ 
+  <br>
+  <style>
+      table,
+      th,
+      td {
+          background-color: cornsilk;
+          padding: 20px;
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+  </style>
+<form action="/authorize" method="post">
+  <div class="container bg-light text-dark">
+      <table class="table table-striped">
+
+          <thead>
+              <tr>
+                  <th>studentId</th>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Department</th>
+              </tr>
+          </thead>
+          <tbody>
+              <%result .forEach(element=> { %>
+                  <tr>
+                      <td>
+                          <%=element.studentId%>
+                      </td>
+                      <td>
+                          <%=element.Firstname%>
+                      </td>
+                      <td>
+                          <%=element.Lastname%>
+                      </td>
+                      <td>
+                          <%=element.Department%>
+                      </td>
+                      <td><a href="/deleteRecord?studentId=<%=element.studentId%>">DELETE</a></td>
+                      <td><a href="/updateRecord?Firstname=<%=element.Firstname%>&studentId=<%=element.studentId%>">UPDATE</a></td>
+
+              
+                      <%});%>
+                    
+
+          </tbody>
+
+      </table>
+      <% if(pageNo < 4) {%>
+        <a style="margin-left: 50px;"
+            href="http://localhost:3000/jjss?page=<%=parseInt(pageNo)+1%>&limit=<%=limitvalue%>">NEXT</a>
+            <% } %>
+          
+            <% if(pageNo> 1) {%>
+                <a style="margin-left: 100px;"
+                    href="http://localhost:3000/jjss?page=<%=parseInt(pageNo)-1%>&limit=<%=limitvalue%>">PREVIOUS</a>
+                    <% } %>
+
+      
+
+  
+
+  </div>
+</form>

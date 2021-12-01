@@ -13,6 +13,21 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.4",
-    "morgan": "~1.9.1"
-  }
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "sql": "^0.78.0"
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GV-KrishnaTeja/Node-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GV-KrishnaTeja/Node-JS/issues"
+  },
+  "homepage": "https://github.com/GV-KrishnaTeja/Node-JS#readme"
 }
