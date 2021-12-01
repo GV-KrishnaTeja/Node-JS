@@ -3,23 +3,22 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const mongoConnection = require('./utils/connection').connectionObject;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const jwtTokenPath = require('./routes/create');
+const dbpath =require('./routes/dbOne');
 const loginPath = require('./routes/login');
-const testPath = require('./routes/login');
-const tablePath =require('./routes/table');
-const userLoginPath =require('./routes/userLogin')
-const authorizePath  =require('./routes/authorize')
-
+const logoutPath = require('./routes/logout');
+const authPath =require('./routes/authorize');
+const anuPath = require('./routes/main');
+const updatePath=require('./routes/update');
+const deletePath=require('./routes/delete');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
-app.set('view engine', 'ejs')
+// app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -29,13 +28,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.get('/create',jwtTokenPath);
+app.get('/jjss',dbpath);
 app.get('/login',loginPath);
-app.get('/testRoute',testPath);
-app.get('/table',tablePath);
-app.get('/userLogin',userLoginPath);
-app.post('/authorize',authorizePath)
-
+app.get('/logout',logoutPath)
+app.post('/authorize',authPath);
+app.get('/main',anuPath)
+app.post('/update_auth',updatePath)
+app.get('/delete',deletePath);
+app.get('/updateRecord',dbpath)
+app.get('/deleteRecord',dbpath)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

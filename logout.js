@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 var router = express.Router();
-// const mysql      = require('mysql');
 const connection =require('../utils/connection')
+// const mysql      = require('mysql');
 // const connection = mysql.createConnection({
 //   host     : 'localhost',
 //   user     : 'root',
@@ -16,9 +16,12 @@ const connection =require('../utils/connection')
 // })
 
 
-router.get('/login', function(req, res, next) {
+router.get('/logout', function(req, res, next) {
+     
+  res.clearCookie('jwtToken')
   
-    res.render('login', { title: 'Express' });
+  res.render('logout', { title: 'Express' });
+
 });
 
 

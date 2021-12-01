@@ -1,25 +1,16 @@
-const { MongoClient } = require('mongodb');
-
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url,{ useNewUrlParser: true, useUnifiedTopology: true });
-
-const connection = async () => {
-  try {
-    await client.connect();
-    console.log('Connected successfully to server');
-      return client;
-  } catch(e) {
-    console.log(e);
-    return Promise.reject(e);
-  }
-}
-
-const connectionObject = connection();
-exports.connectionObject = connectionObject;
-
-
-const addFun =  (a,b) => {
-  return a+b;
-}
-
-exports.addFun = addFun;
+const mysql= require('mysql')
+const connection = mysql.createConnection({
+    host:'localhost',
+    user:'root',
+    password:'Password@123',
+    database:'student_table'
+})
+connection.connect((error)=>{
+    if(error){
+        return console.log(error.message);
+    }
+    console.log('connected sucessfully to db!!!')
+})
+ 
+// exports.connection= connection
+ module.exports = connection
