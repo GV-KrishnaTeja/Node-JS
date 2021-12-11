@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var app = express();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -15,7 +16,14 @@ const records = require('./routes/records');
 const update_auth=require('./routes/update_auth');
 const adminlogin=require('./routes/adminlogin');
 const authorizeLogin=require('./routes/checkValidate')
-var app = express();
+const showpath =require('./routes/showData1')
+const addPath = require('./routes/addUpdates');
+const aboutPath = require('./routes/about')
+const mainHomePath = require ('./routes/mainHome')
+const imagesPath = require('./routes/images');
+const contact = require('./routes/contact')
+const attendance = require('./routes/attendance');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +50,17 @@ app.get("/adminlogin", adminlogin);
 app.post("/reg-form-check", regFormCheck);
 app.post("/authorizeLogin", authorizeLogin);
 app.post("/update_auth", update_auth);
+app.get('/showData1',showpath);
+app.get('/addUpdates',addPath)
+app.get('/home',indexRouter)
+app.post('/announcement', crudOp)
+app.get('/about',aboutPath)
+app.get('/mainHome',mainHomePath);
+app.get('/images',imagesPath)
+app.get('/contact',contact)
+app.get('/attendance',attendance);
+app.post('/attendance',attendance);
+//app.post('/addUpdates',addPath)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
